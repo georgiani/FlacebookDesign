@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 class Status extends StatelessWidget {
   final double h;
+  final Image profilePic;
 
   Status({
     this.h,
+    this.profilePic,
   });
 
   @override
@@ -18,9 +20,12 @@ class Status extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(Global.leftIdentation, 0, 10, 0),
             child: ClipOval(
               child: Container(
-                color: Colors.blueGrey,
+                child: Icon(Icons.person),
                 width: this.h,
                 height: this.h,
+                decoration: BoxDecoration(
+                  color: Colors.grey[800],
+                ),
               ),
             ),
           ),

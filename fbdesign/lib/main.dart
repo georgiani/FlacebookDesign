@@ -13,6 +13,7 @@ class FB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: FBBody(),
       ),
@@ -26,7 +27,7 @@ class FBBody extends StatelessWidget {
     Global.notchInset = MediaQuery.of(context).padding;
     Global.screenWidth = MediaQuery.of(context).size.width;
     Global.screenHeigth =
-        MediaQuery.of(context).size.height - Global.notchInset.top;
+        MediaQuery.of(context).size.height;
     Global.leftIdentation = Global.screenWidth / 30;
     Global.rightPadding = Global.screenWidth / 30;
     Global.rootCtx = context;
@@ -46,6 +47,7 @@ class FBBody extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                 child: Status(
+                  profilePic: Image.asset("assets/images/user.png"),
                   h: 50,
                 ),
               ),
@@ -59,57 +61,64 @@ class FBBody extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
                         child: StoryIcon(
-                          placeholderPhotoColor: Colors.indigo,
-                          placeholderUserPicColor: Colors.orange,
+                          placeholderPhoto: "assets/images/autumn.png",
+                          userName: "John",
+                          content: "Autumn photo! Love it 🥰",
+                          bgColor: Colors.indigo,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                         child: StoryIcon(
-                          placeholderPhotoColor: Colors.amberAccent,
-                          placeholderUserPicColor: Colors.lightGreen,
+                          placeholderPhoto: "assets/images/bike.png",
+                          userName: "Sean",
+                          content: "Me and my bike! 🚴🏼‍♀️",
+                          bgColor: Colors.lightGreen,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                         child: StoryIcon(
-                          placeholderPhotoColor: Colors.lime,
-                          placeholderUserPicColor: Colors.red,
+                          placeholderPhoto: "assets/images/car.png",
+                          userName: "Julia",
+                          content: "Can't wait to go on holidays again 😍",
+                          bgColor: Colors.purple,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                         child: StoryIcon(
-                          placeholderPhotoColor: Colors.teal,
-                          placeholderUserPicColor: Colors.brown,
+                          placeholderPhoto: "assets/images/farm.png",
+                          userName: "Carlo",
+                          content: "Photo of a farm!",
+                          bgColor: Colors.teal,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                         child: StoryIcon(
-                          placeholderPhotoColor: Colors.indigo,
-                          placeholderUserPicColor: Colors.orange,
+                          placeholderPhoto: "assets/images/home.png",
+                          userName: "Tim",
+                          content: "Keeping the house clean is important! 🦠",
+                          bgColor: Colors.redAccent,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                         child: StoryIcon(
-                          placeholderPhotoColor: Colors.amberAccent,
-                          placeholderUserPicColor: Colors.lightGreen,
+                          placeholderPhoto: "assets/images/post.png",
+                          userName: "Mark",
+                          content: "Work!",
+                          bgColor: Colors.brown,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
                         child: StoryIcon(
-                          placeholderPhotoColor: Colors.lime,
-                          placeholderUserPicColor: Colors.red,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
-                        child: StoryIcon(
-                          placeholderPhotoColor: Colors.teal,
-                          placeholderUserPicColor: Colors.brown,
+                          placeholderPhoto: "assets/images/snow.png",
+                          userName: "Dan",
+                          content: "Can't wait for this winter",
+                          bgColor: Colors.white,
                         ),
                       ),
                     ],
@@ -117,15 +126,17 @@ class FBBody extends StatelessWidget {
                 ),
               ),
               Container(
-                height: 3 * Global.screenHeigth / 5.2,
+                height: 3 * Global.screenHeigth / 6,
                 child: ListView(
                   scrollDirection: Axis.vertical,
                   children: [
                     post.PostCard(
-                      placeholderPhotoColor: Colors.teal,
+                      placeholderPhoto: "assets/images/car.png",
+                      userName: "John",
                     ),
                     post.PostCard(
-                      placeholderPhotoColor: Colors.yellow,
+                      placeholderPhoto: "assets/images/post.png",
+                      userName: "Connor",
                     ),
                   ],
                 ),

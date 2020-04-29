@@ -1,4 +1,5 @@
 import 'package:fbdesign/model.dart';
+import 'package:fbdesign/notifications/notifications.dart';
 import 'package:fbdesign/topBar/topBarIcons.dart';
 import 'package:flutter/material.dart';
 
@@ -43,7 +44,12 @@ class TopBar extends StatelessWidget {
                     child: IconButton(
                       iconSize: 20,
                       icon: notificationIcon,
-                      onPressed: () {},
+                      onPressed: () {
+                        showDialog(
+                          context: Global.rootCtx,
+                          child: NotificationsDialog(),
+                        );
+                      },
                       color: Colors.white,
                     ),
                   ),

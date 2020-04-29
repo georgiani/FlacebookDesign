@@ -3,12 +3,17 @@ import '../model.dart';
 import 'package:fbdesign/photoPreview/photoPreview.dart';
 
 class StoryIcon extends StatelessWidget {
-  final Color placeholderPhotoColor;
-  final Color placeholderUserPicColor;
+  final String placeholderPhoto;
+  final String userName;
+  final String content;
+
+  final Color bgColor;
 
   StoryIcon({
-    this.placeholderPhotoColor,
-    this.placeholderUserPicColor,
+    this.placeholderPhoto,
+    this.userName,
+    this.content,
+    this.bgColor,
   });
 
   @override
@@ -30,18 +35,27 @@ class StoryIcon extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (ctx) => FullPhoto(
-                      bgColor: this.placeholderPhotoColor,
-                      userName: "User Name",
-                      textOfContent: "Quality Content",
+                      photo: this.placeholderPhoto,
+                      userName: this.userName,
+                      textOfContent: this.content,
+                      reactions: false,
                     ),
                   ),
                 ),
                 child: Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: Image(
+                      fit: BoxFit.contain,
+                      image: AssetImage(this.placeholderPhoto),
+                    ),
+                  ),
                   width: w,
                   height: 85 / 100 * h,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: this.placeholderPhotoColor,
+                    border: Border.all(width: 1, color: Colors.grey[900]),
+                    color: bgColor ?? Colors.orange[300],
                   ),
                 ),
               ),
@@ -54,12 +68,13 @@ class StoryIcon extends StatelessWidget {
                     height: w / 2,
                     color: Colors.grey[900],
                     child: Padding(
-                      padding: const EdgeInsets.all(4),
+                      padding: EdgeInsets.all(4),
                       child: ClipOval(
                         child: Container(
+                          child: Icon(Icons.person),
+                          decoration: BoxDecoration(color: Colors.grey[800]),
                           width: w / 3,
                           height: w / 3,
-                          color: this.placeholderUserPicColor,
                         ),
                       ),
                     ),
@@ -72,7 +87,7 @@ class StoryIcon extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(2),
           child: Text(
-            "User Name",
+            this.userName,
             style: TextStyle(color: Colors.white, fontSize: 10),
           ),
         )
